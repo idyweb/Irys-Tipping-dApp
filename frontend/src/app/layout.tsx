@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import WalletBar from "@/components/wallet-bar";
 
 export const metadata: Metadata = {
   title: "Irys Tipping dApp",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/upload">Upload</Link>
               <Link href="/feed">Feed</Link>
             </div>
+            <WalletBar />
           </nav>
         </header>
         <main>{children}</main>
