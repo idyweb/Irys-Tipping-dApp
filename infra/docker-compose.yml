@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: irys_db
+    environment:
+      POSTGRES_USER: irys
+      POSTGRES_PASSWORD: irys
+      POSTGRES_DB: irys
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    container_name: irys_backend
+    environment:
+      - DATABASE_URL=postgresql://irys:irys@db:5432/irys
+      - ENV=local
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    working_dir: /app
+    command: ["python", "uvicorn_app.py"]
+
+volumes:
+  db_data:

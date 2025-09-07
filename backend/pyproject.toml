@@ -1,0 +1,23 @@
+[project]
+name = "irys-backend"
+version = "0.1.0"
+description = "Backend API for Irys Ephemeral-to-Permanent Tipping dApp"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi==0.115.0",
+  "uvicorn[standard]==0.30.6",
+  "pydantic==2.8.2",
+  "python-dotenv==1.0.1",
+  "psycopg2-binary==2.9.9",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.uvicorn]
+factory = false
+host = "0.0.0.0"
+port = 8000
+reload = true
+

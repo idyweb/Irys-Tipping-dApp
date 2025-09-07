@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# FastAPI/pytest
+backend/.pytest_cache/
+
+# Node/Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+frontend/.vercel/
+frontend/dist/
+
+# OS
+.DS_Store
